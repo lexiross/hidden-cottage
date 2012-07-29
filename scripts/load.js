@@ -1,5 +1,6 @@
 $(document).bind('pageinit', function() {
     $.getJSON('stream.php', function(data) {
+        console.log(data);
         var checkins = [];
         $.each(data, function(index, checkin) {
             checkins.push('<li class="ui-li ui-li-static ui-body-c"><p class="ui-li-aside ui-li-desc">'
