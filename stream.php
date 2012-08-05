@@ -4,7 +4,7 @@ $con = mysql_connect('localhost', 'root', 'crimson');
 mysql_select_db('hiddencottage');
 
 $userid=$_GET['userid']; 
-$result = mysql_query("SELECT * from checkins where fb_user_id='$userid' order by timestamp DESC");
+$result = mysql_query("SELECT * from checkins where user_fb_id='$userid' order by timestamp DESC");
 
 echo "<table>";
 
