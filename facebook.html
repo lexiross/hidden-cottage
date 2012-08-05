@@ -8,7 +8,17 @@
 
       <div id="fb-root"></div>
       <script type="text/javascript">
+        document.write("Hello");
         window.fbAsyncInit = function() {
+          // Load the SDK Asynchronously
+          (function(d){
+            var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement('script'); js.id = id; js.async = true;
+            js.src = "//connect.facebook.net/en_US/all.js";
+            ref.parentNode.insertBefore(js, ref);
+          }(document));
+        
           FB.init({
             appId      : 506377742712595,
             channelUrl : '//www.lexiross.com/hidden-cottage/channel.html', // Channel File
@@ -17,15 +27,6 @@
             xfbml      : true  // parse XFBML
           });
           // Additional initialization code here
-        
-        // Load the SDK Asynchronously
-        (function(d){
-           var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
-           if (d.getElementById(id)) {return;}
-           js = d.createElement('script'); js.id = id; js.async = true;
-           js.src = "//connect.facebook.net/en_US/all.js";
-           ref.parentNode.insertBefore(js, ref);
-         }(document));
          
          // listen for and handle auth.statusChange events
         FB.Event.subscribe('auth.statusChange', function(response) {
@@ -53,6 +54,36 @@
           FB.logout();
         }); 
       } 
+      
+      function displayUser(user) {
+       var userName = document.getElementById('userName');
+       var greetingText = document.createTextNode('Greetings, '
+         + user.name + '.');
+   userName.appendChild(greetingText);
+     }
+
+     var appID = 506377742712595;
+     if (window.location.hash.length == 0) {
+       var path = 'https://www.facebook.com/dialog/oauth?';
+   var queryParams = ['client_id=' + appID,
+     'redirect_uri=' + window.location,
+     'response_type=token'];
+   var query = queryParams.join('&');
+   var url = path + query;
+   window.open(url);
+     } else {
+       var accessToken = window.location.hash.substring(1);
+       var path = "https://graph.facebook.com/me?";
+   var queryParams = [accessToken, 'callback=displayUser'];
+   var query = queryParams.join('&');
+   var url = path + query;
+
+   // use jsonp to call the graph
+       var script = document.createElement('script');
+       script.src = url;
+       document.body.appendChild(script);        
+     }
+     
     </script>
 
     <h1>Facebook Client-side Authentication Example</h1>
@@ -67,6 +98,8 @@
       
       <div class="fb-login-button">Login with Facebook</div>
     </div>
+	
+	<p id="userName"></p> 
 
     </body>
  </html>
