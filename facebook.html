@@ -9,7 +9,6 @@
       <div id="fb-root"></div>
       <script>
         
-          //document.write("Goodbye");
           // Load the SDK Asynchronously
           (function(d){
             var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
@@ -56,37 +55,6 @@
           FB.logout();
         }); 
       } 
-      
-      //window.fbAsyncInit();
-      
-      function displayUser(user) {
-       var userName = document.getElementById('userName');
-       var greetingText = document.createTextNode('Greetings, '
-         + user.name + '.');
-   userName.appendChild(greetingText);
-     }
-
-     var appID = 506377742712595;
-     if (window.location.hash.length == 0) {
-       var path = 'https://www.facebook.com/dialog/oauth?';
-   var queryParams = ['client_id=' + appID,
-     'redirect_uri=' + window.location,
-     'response_type=token'];
-   var query = queryParams.join('&');
-   var url = path + query;
-   window.open(url);
-     } else {
-       var accessToken = window.location.hash.substring(1);
-       var path = "https://graph.facebook.com/me?";
-   var queryParams = [accessToken, 'callback=displayUser'];
-   var query = queryParams.join('&');
-   var url = path + query;
-
-   // use jsonp to call the graph
-       var script = document.createElement('script');
-       script.src = url;
-       document.body.appendChild(script);        
-     }
      
     </script>
 
