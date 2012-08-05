@@ -10,4 +10,5 @@ while ($row = mysql_fetch_array($result))
 {
 	echo $row['c_id']; 
 }
+echo "hi";
 ?>
