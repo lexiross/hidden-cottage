@@ -1,0 +1,33 @@
+<html>
+<body>
+<link rel=StyleSheet href="baseballstyle.css" type="text/css">
+<?php
+
+$con = mysql_connect('localhost', 'root', 'crimson');
+mysql_select_db('hiddencottage');
+
+
+if ($_GET['userid'])
+{
+	$userid=$_GET['userid']; 
+	$useeid=$_GET['useeid']; 
+	$pts=$_GET['pts']; 
+
+	$result = mysql_query("INSERT INTO checkins VALUES (0,$userid, $useeid, NOW(), $pts)");
+	echo "checked-in!"
+}
+else
+{
+	?>
+	<div class="top">
+		<h1>How far did you get?</h1>
+	</div>
+	<div class="fieldpic">
+		<img src="http://i.imgur.com/Mi3Mz.jpg">
+	</div>
+	<?php	
+}
+
+?>
+</body>
+</html>
