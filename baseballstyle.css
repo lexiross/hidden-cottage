@@ -1,0 +1,17 @@
+body {background-color: #000000;}
+
+h1{
+	color: white; 
+	text-align: center;
+}
+
+#first{
+  position:absolute; 
+  width:100px;
+  height:100;
+  top:0;
+  left: 0;
+
+  /* edit: added z-index */
+  z-index: 1;
+}
