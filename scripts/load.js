@@ -12,7 +12,7 @@ $(document).bind('pageinit', function() {
                             + ' points</p></li>');
         });
         
-        var html = '<ul data-role="listview" class="ui-listview">' + items.join('') + '</ul>';
+        var html = '<ul data-role="listview" class="ui-listview">' + checkins.join('') + '</ul>';
         $('#stream').append(html);
     });
 });
