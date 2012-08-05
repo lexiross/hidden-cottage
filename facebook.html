@@ -8,8 +8,7 @@
 
       <div id="fb-root"></div>
       <script>
-        //document.write("Hello");
-        window.fbAsyncInit = function() {
+        
           //document.write("Goodbye");
           // Load the SDK Asynchronously
           (function(d){
@@ -19,6 +18,8 @@
             js.src = "//connect.facebook.net/en_US/all.js";
             ref.parentNode.insertBefore(js, ref);
           }(document));
+        
+        window.fbAsyncInit = function() {
         
           FB.init({
             appId      : 506377742712595,
