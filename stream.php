@@ -16,10 +16,10 @@ while ($row = mysql_fetch_array($result))
 	$pts=$row['pts'];
 
 	$arrayrow = array(
-		"userid" => '$userid',
-		"useeid" => '$useeid',
-		"timestamp" => '$timestamp',
-		"pts" => '$pts',
+		"userid" => $userid,
+		"useeid" => $useeid,
+		"timestamp" => $timestamp,
+		"pts" => $pts,
 		);
 
 	$array[] = $arrayrow;
