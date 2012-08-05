@@ -15,12 +15,12 @@ while ($row = mysql_fetch_array($result))
 	$timestamp=$row['timestamp'];
 	$pts=$row['pts'];
 
-	$arrayrow = array('
+	$arrayrow = array(
 		"userid" => '$userid',
 		"useeid" => '$useeid',
 		"timestamp" => '$timestamp',
 		"pts" => '$pts',
-		');
+		);
 
 	$array[] = $arrayrow;
 
