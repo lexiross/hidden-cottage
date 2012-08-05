@@ -46,6 +46,8 @@
             document.getElementById('auth-loggedin').style.display = 'none';
           }
         });
+		
+		window.fbAsyncInit();
 
         // respond to clicks on the login and logout links
         document.getElementById('auth-loginlink').addEventListener('click', function(){
