@@ -6,7 +6,7 @@ mysql_select_db('hiddencottage');
 $userid=$_GET['userid']; 
 $result = mysql_query("SELECT * from checkins where user_fb_id='$userid' order by timestamp DESC");
 
-echo "<table>";
+$array = array(); 
 
 while ($row = mysql_fetch_array($result))
 {
@@ -14,7 +14,17 @@ while ($row = mysql_fetch_array($result))
 	$useeid=$row['usee_fb_id'];
 	$timestamp=$row['timestamp'];
 	$pts=$row['pts'];
-	echo "<tr><td>$userid</td><td>$useeid</td><td>$timestamp</td><td>$pts</td>";
+
+	$arrayrow = array('
+		"userid" => '$userid',
+		"useeid" => '$useeid',
+		"timestamp" => '$timestamp',
+		"pts" => '$pts',
+		');
+
+	$array[] = $arrayrow;
+
 }
-echo "</table>";
+
+echo json_encode($array);
 ?>
