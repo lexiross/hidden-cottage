@@ -28,6 +28,7 @@
             xfbml      : true  // parse XFBML
           });
           // Additional initialization code here
+        };
          
          // listen for and handle auth.statusChange events
         FB.Event.subscribe('auth.statusChange', function(response) {
@@ -54,7 +55,7 @@
         document.getElementById('auth-logoutlink').addEventListener('click', function(){
           FB.logout();
         }); 
-      } 
+      
      
     </script>
 
