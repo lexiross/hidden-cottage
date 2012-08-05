@@ -3,10 +3,10 @@
 $con = mysql_connect('localhost', 'root', 'crimson');
 mysql_select_db('hiddencottage');
 
-$result = mysql_query("SELECT * from badges")
+$userid=0; 
+$useeid=0; 
+$pts=0; 
 
-while ($row = mysql_fetch_array($result))
-{
-	echo $row['b_id']; 
-}
+$result = mysql_query("INSERT INTO checkins VALUES (0,$userid, $useeid, NOW(), $pts)");
+
 ?>
