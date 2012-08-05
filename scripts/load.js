@@ -1,5 +1,5 @@
 $(document).bind('pageinit', function() {
-    $.getJSON('stream.php', function(data) {
+    $.getJSON('stream.php', { userid:'1' }, function(data) {
         console.log(data);
         var checkins = [];
         $.each(data, function(index, checkin) {
